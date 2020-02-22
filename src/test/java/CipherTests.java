@@ -30,9 +30,34 @@ public class CipherTests {
   }
 
   @Test
-  public void caesarCiphergetTextTest4(){
+  public void caesarCiphergetTextTest5(){
     CaesarCipher cipher = new CaesarCipher("h5llo chi7d");  //testing for numbers in string
     assertEquals("c5ggj xcd7y", cipher.getText());        //idk what result should be
+  }
+  @Test
+  public void caesarCiphergetTextTest6(){
+    CaesarCipher cipher = new CaesarCipher("AaBbCcDdEeFf");  //testing for numbers in string
+    assertEquals("VvWwXxYyZzAa", cipher.getText());        //idk what result should be
+  }
+  @Test
+  public void caesarCiphergetTextTest7(){
+    CaesarCipher cipher = new CaesarCipher("");  //testing for numbers in string
+    assertEquals("", cipher.getText());        //idk what result should be
+  }
+  @Test
+  public void caesarCiphergetTextTest8(){
+    CaesarCipher cipher = new CaesarCipher("ZzYyXxWwVv");  //testing for numbers in string
+    assertEquals("UuTtSsRrQq", cipher.getText());        //idk what result should be
+  }
+  @Test
+  public void caesarCiphergetTextTest9(){
+    CaesarCipher cipher = new CaesarCipher(" ");  //testing for numbers in string
+    assertEquals(" ", cipher.getText());        //idk what result should be
+  }
+  @Test
+  public void caesarCiphergetTextTest10(){
+    CaesarCipher cipher = new CaesarCipher("aaaammmm");  //testing for numbers in string
+    assertEquals("vvvvhhhh", cipher.getText());        //idk what result should be
   }
 
   @Test
