@@ -26,20 +26,27 @@ public class ElbonianCipher implements Observer {
 
 
 		char[] letters = this.text.toCharArray();
+		String encodedChar = "";
 		String encodedText = "";
 
 		for (char character : letters) {
 			if (character <= 'z' && character >= 'a') {//lowercase letters
-				character = (char) ((int)character - LOWERCASE_SHIFT);
+				encodedChar = Integer.toString((int)character - LOWERCASE_SHIFT);
+				if(encodedChar.length()==1){
+					encodedChar= "0" + encodedChar;
+				}
 			} else if (character <= 'Z' && character >= 'A') {//uppercase letters
-				character = (char) ((int)character - UPPERCASE_SHIFT);
+				encodedChar = Integer.toString((int)character - UPPERCASE_SHIFT);
+				if(encodedChar.length()==1){
+					encodedChar= "0" + encodedChar;
+				}
 			} else if(character == ' '){//Space to S
-				character = 'S';
+				encodedChar = "S";
 			}else{//non-character char
-				character = character;
+				encodedChar = "" + character;
 			}
 
-			encodedText += character;
+			encodedText += encodedChar;
 		}
 
 
