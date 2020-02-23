@@ -49,14 +49,11 @@ public class ElbonianCipher implements Observer {
 			encodedText += encodedChar;
 		}
 
-
-
-
-
 		return encodedText;
 	}
 
 	@Override
 	public void notify(Object object){
+		((Message)object).getText();
 	}
 }

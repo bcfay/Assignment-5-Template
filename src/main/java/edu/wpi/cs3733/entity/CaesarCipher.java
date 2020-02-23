@@ -5,6 +5,8 @@ package edu.wpi.cs3733.entity;
  */
 public class CaesarCipher implements Observer {
 
+	Observable message;
+
 	public CaesarCipher() {
 	}
 
@@ -60,7 +62,7 @@ public class CaesarCipher implements Observer {
 
 		@Override
 		public void notify (Object object){
-
+			((Message)object).getText();
 		}
 	}
 

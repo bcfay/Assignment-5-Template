@@ -8,12 +8,15 @@ import java.util.List;
  */
 public class Message implements Observable {
 	private List<Observer> observers = new ArrayList<Observer>();
-	public void setText(String text){
+	private String message;
 
+	public void setText(String text){
+		this.message = message;
+		notifyObservers();
 	}
 
 	public String getText(){
-		return null;
+		return message;
 	}
 
 	@Override
