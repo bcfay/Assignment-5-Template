@@ -62,9 +62,38 @@ public class CipherTests {
 
   @Test
   public void elbonianCiphergetTextTest1(){
-    ElbonianCipher cipher = new ElbonianCipher("This is a message");
-    assertEquals(cipher.getText(), "20080919S0919S01S13051919010705");
+    ElbonianCipher cipher = new ElbonianCipher("a");
+    assertEquals("01", cipher.getText());
   }
-
+  @Test
+  public void elbonianCiphergetTextTest2(){
+    ElbonianCipher cipher = new ElbonianCipher(" ");
+    assertEquals("S", cipher.getText());
+  }
+  @Test
+  public void elbonianCiphergetTextTest3(){
+    ElbonianCipher cipher = new ElbonianCipher("");
+    assertEquals("", cipher.getText());
+  }
+  @Test
+  public void elbonianCiphergetTextTest4(){
+    ElbonianCipher cipher = new ElbonianCipher("A");
+    assertEquals("01", cipher.getText());
+  }
+  @Test
+  public void elbonianCiphergetTextTest5(){
+    ElbonianCipher cipher = new ElbonianCipher("abcdefghijklmnopqrstuvwxyz");
+    assertEquals("0102030405060708091011121314151617181920212223242526", cipher.getText());
+  }
+  @Test
+  public void elbonianCiphergetTextTest6(){
+    ElbonianCipher cipher = new ElbonianCipher("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    assertEquals("0102030405060708091011121314151617181920212223242526", cipher.getText());
+  }
+  @Test
+  public void elbonianCiphergetTextTest7(){
+    ElbonianCipher cipher = new ElbonianCipher("    ");
+    assertEquals("SSSS", cipher.getText());
+  }
 }
 
