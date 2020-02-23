@@ -10,13 +10,12 @@ import java.util.List;
  */
 public class Message implements Observable {
 	private List<Observer> observers = new ArrayList<Observer>();
-
 	private String message;
 
 		//TODO make this check that given string is only up to 140 characters each of which can only be uppercase, lowercase or a space
 
 	public void setText(String text){
-		this.message = message;
+		this.message = text;
 		notifyObservers();
 	}
 
@@ -31,8 +30,8 @@ public class Message implements Observable {
 
 	@Override
 	public void notifyObservers(){
-		for (Observer observer: observers) {
-			observer.notify();
+		for (Observer observer : observers) {
+			observer.notify(this);
 		}
 	}
 }

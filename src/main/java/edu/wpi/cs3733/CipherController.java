@@ -28,10 +28,8 @@ public class CipherController {
 		caesarCipher = new CaesarCipher();
 		elbonianCipher = new ElbonianCipher();
 
-		/*
-		 * You may add additional code here if it relates to your observer pattern implementation.
-		 */
-
+		cleartext.register(caesarCipher);
+		cleartext.register(elbonianCipher);
 	}
 
 	/**

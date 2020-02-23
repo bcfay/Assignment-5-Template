@@ -5,27 +5,15 @@ package edu.wpi.cs3733.entity;
  */
 public class ElbonianCipher implements Observer {
 
-	public ElbonianCipher(String text) {
-		this.text = text;
-	}
-
-	public ElbonianCipher() {
-	}
-
-	private String text;
+	private String textOut;
 
 	public void setText(String text) {
-		this.text = text;
-	}
-
-
-	public String getText(){
 
 		final int LOWERCASE_SHIFT = 96;
 		final int UPPERCASE_SHIFT = 64;
 
 
-		char[] letters = this.text.toCharArray();
+		char[] letters = text.toCharArray();
 		String encodedChar = "";
 		String encodedText = "";
 
@@ -48,12 +36,16 @@ public class ElbonianCipher implements Observer {
 
 			encodedText += encodedChar;
 		}
+		this.textOut = encodedText;
+	}
 
-		return encodedText;
+
+	public String getText(){
+		return textOut;
 	}
 
 	@Override
 	public void notify(Object object){
-		((Message)object).getText();
+		this.setText(((Message)object).getText());
 	}
 }

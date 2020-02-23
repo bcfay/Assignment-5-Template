@@ -5,26 +5,13 @@ package edu.wpi.cs3733.entity;
  */
 public class CaesarCipher implements Observer {
 
-	Observable message;
-
-	public CaesarCipher() {
-	}
-
-	private String text = "";
-
-	public CaesarCipher(String text) {
-		this.text = text;
-	}
+	private String textOut = "";
 
 	public void setText(String text) {
-		this.text = text;
-	}
-
-	public String getText() {
 
 		final int SHIFT = -5;
 
-		char[] letters = this.text.toCharArray();
+		char[] letters = text.toCharArray();
 		String encodedText = "";
 
 		for (char letter : letters) {
@@ -56,13 +43,17 @@ public class CaesarCipher implements Observer {
 			encodedText += letter;
 		}
 
-			return encodedText;
+		textOut = encodedText;
+	}
+
+	public String getText() {
+			return textOut;
 		}
 
 
 		@Override
 		public void notify (Object object){
-			((Message)object).getText();
+			this.setText(((Message)object).getText());
 		}
 	}
 
